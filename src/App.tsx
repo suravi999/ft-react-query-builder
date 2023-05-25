@@ -109,6 +109,7 @@ export const App = () => {
         onQueryChange={q => setQuery(q)}
       />
 
+      <h2>Outputs</h2>
       <h4>Query CEL</h4>
       <pre>
         <code>{formatQuery(query, 'cel')}</code>
