@@ -109,9 +109,14 @@ export const App = () => {
         onQueryChange={q => setQuery(q)}
       />
 
-      <h4>Query</h4>
+      <h4>Query CEL</h4>
       <pre>
         <code>{formatQuery(query, 'cel')}</code>
+      </pre>
+
+      <h4>Query JSON</h4>
+      <pre>
+        <code>{formatQuery(query, 'json')}</code>
       </pre>
     </div>
   );
