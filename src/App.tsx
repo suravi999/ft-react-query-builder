@@ -17,9 +17,15 @@ const initialQuery: RuleGroupType = {
   rules: [{ field: 'length', operator: '<', value: 10 }],
 };
 
+const sampleAPIResponse: string =
+  '{"result":{"query":{"rules":[{"rules":[{"field":"Items.Height","operator":">=","value":"400","propertyDataType":"decimal","valueDataType":"decimal","order":0,"combinator":null,"not":null},{"field":"Items.Height","operator":"<","value":"500","propertyDataType":"decimal","valueDataType":"decimal","order":1}],"combinator":"and"},{"rules":[{"field":"Items.Width","operator":">=","value":"400","propertyDataType":"decimal","valueDataType":"decimal","order":0},{"field":"Items.Width","operator":"<","value":"500","propertyDataType":"decimal","valueDataType":"decimal","order":1}],"combinator":"and"},{"rules":[{"field":"Items.Length","operator":">=","value":"400","propertyDataType":"decimal","valueDataType":"decimal","order":0},{"field":"Items.Length","operator":"<","value":"500","propertyDataType":"decimal","valueDataType":"decimal","order":1}],"combinator":"and"}],"combinator":"or"},"carrierCode":null,"carrierAccountId":10,"serviceId":53,"additionalServiceId":null},"targetUrl":null,"success":true,"error":null,"unAuthorizedRequest":false,"__abp":true}';
+
 export const App = () => {
   const [message, setMessage] = useState('');
   const [query, setQuery] = useState(initialQuery);
+
+  var j = JSON.parse(sampleAPIResponse);
+  query = j.result.query;
 
   const handleChange = event => {
     setMessage(event.target.value);
@@ -31,87 +37,13 @@ export const App = () => {
     setQuery(q);
   };
 
-  const query2 = {
-    rules: [
-      {
-        rules: [
-          {
-            field: 'Items.Height',
-            operator: '>=',
-            value: '400',
-            propertyDataType: 'decimal',
-            valueDataType: 'decimal',
-            order: 0,
-          },
-          {
-            field: 'Items.Height',
-            operator: '<',
-            value: '500',
-            propertyDataType: 'decimal',
-            valueDataType: 'decimal',
-            order: 1,
-          },
-        ],
-        combinator: 'and',
-        not: false,
-      },
-      {
-        rules: [
-          {
-            field: 'Items.Width',
-            operator: '>=',
-            value: '400',
-            propertyDataType: 'decimal',
-            valueDataType: 'decimal',
-            order: 0,
-          },
-          {
-            field: 'Items.Width',
-            operator: '<',
-            value: '500',
-            propertyDataType: 'decimal',
-            valueDataType: 'decimal',
-            order: 1,
-          },
-        ],
-        combinator: 'and',
-        not: false,
-      },
-      {
-        rules: [
-          {
-            field: 'Items.Length',
-            operator: '>=',
-            value: '400',
-            propertyDataType: 'decimal',
-            valueDataType: 'decimal',
-            order: 0,
-          },
-          {
-            field: 'Items.Length',
-            operator: '<',
-            value: '500',
-            propertyDataType: 'decimal',
-            valueDataType: 'decimal',
-            order: 1,
-          },
-        ],
-        combinator: 'and',
-        not: false,
-      },
-    ],
-    combinator: 'or',
-    not: false,
-  };
-  const sqlWhere = formatQuery(query2, 'sql');
-  console.log(sqlWhere);
-
   return (
     <div>
       <div>
         <div>
           <div>
-            <label>Enter value : </label>
+            <label>Add API response : </label>
+            <br />
             <textarea onChange={handleChange} />
           </div>
         </div>
