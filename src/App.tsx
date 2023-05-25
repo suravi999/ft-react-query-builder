@@ -3,18 +3,77 @@ import type { Field, RuleGroupType } from 'react-querybuilder';
 import { formatQuery, QueryBuilder } from 'react-querybuilder';
 import './styles.scss';
 
-const fields: Field[] = [
-  { name: 'length', label: 'length' },
-  { name: 'Weight', label: 'Weight' },
-  { name: 'Width', label: 'Width' },
-  { name: 'Heigh', label: 'Heigh' },
-  { name: 'Qty', label: 'Qty' },
-  { name: 'PackgeType', label: 'PackgeType' },
-];
+const fields: Field[] = [{ name: 'length', label: 'length' }];
 
 const initialQuery: RuleGroupType = {
-  combinator: 'and',
-  rules: [{ field: 'length', operator: '<', value: 10 }],
+  rules: [
+    {
+      rules: [
+        {
+          field: 'Items.Height',
+          operator: '>=',
+          value: '400',
+          propertyDataType: 'decimal',
+          valueDataType: 'decimal',
+          order: 0,
+          combinator: null,
+          not: null,
+        },
+        {
+          field: 'Items.Height',
+          operator: '<',
+          value: '500',
+          propertyDataType: 'decimal',
+          valueDataType: 'decimal',
+          order: 1,
+        },
+      ],
+      combinator: 'and',
+    },
+    {
+      rules: [
+        {
+          field: 'Items.Width',
+          operator: '>=',
+          value: '400',
+          propertyDataType: 'decimal',
+          valueDataType: 'decimal',
+          order: 0,
+        },
+        {
+          field: 'Items.Width',
+          operator: '<',
+          value: '500',
+          propertyDataType: 'decimal',
+          valueDataType: 'decimal',
+          order: 1,
+        },
+      ],
+      combinator: 'and',
+    },
+    {
+      rules: [
+        {
+          field: 'Items.Length',
+          operator: '>=',
+          value: '400',
+          propertyDataType: 'decimal',
+          valueDataType: 'decimal',
+          order: 0,
+        },
+        {
+          field: 'Items.Length',
+          operator: '<',
+          value: '500',
+          propertyDataType: 'decimal',
+          valueDataType: 'decimal',
+          order: 1,
+        },
+      ],
+      combinator: 'and',
+    },
+  ],
+  combinator: 'or',
 };
 
 const sampleAPIResponse: string =
@@ -38,7 +97,11 @@ export const App = () => {
     <div>
       <label>Add API response : </label>
       <br />
-      <textarea onChange={handleChange} defaultValue={sampleAPIResponse} style={{ height: 300, width:700 }}/>
+      <textarea
+        onChange={handleChange}
+        defaultValue={sampleAPIResponse}
+        style={{ height: 300, width: 700 }}
+      />
 
       <QueryBuilder
         fields={fields}
