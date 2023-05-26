@@ -3,7 +3,44 @@ import type { Field, RuleGroupType } from 'react-querybuilder';
 import { formatQuery, QueryBuilder } from 'react-querybuilder';
 import './styles.scss';
 
-const fields: Field[] = [{ name: 'length', label: 'length' }];
+const fields: Field[] = [{ name: "Items.All.Length", label: "Items.All.Length"},
+{ name: "ItemOptions.Unusual", label: "ItemOptions.Unusual"},
+{ name: "Items.Rotation", label: "Items.Rotation"},
+{ name: "Items.PackageType", label: "Items.PackageType"},
+{ name: "PickupOptions.TailLift", label: "PickupOptions.TailLift"},
+{ name: "Items.All.PackageType", label: "Items.All.PackageType"},
+{ name: "Items.All.Width", label: "Items.All.Width"},
+{ name: "ItemOptions.Liquid", label: "ItemOptions.Liquid"},
+{ name: "Items.Length", label: "Items.Length"},
+{ name: "Items..Weight", label: "Items..Weight"},
+{ name: "Items.Height", label: "Items.Height"},
+{ name: "Items.Weight", label: "Items.Weight"},
+{ name: "Items..CubicWeight", label: "Items..CubicWeight"},
+{ name: "DeliveryOptions.POBox", label: "DeliveryOptions.POBox"},
+{ name: "Items.All.Weight", label: "Items.All.Weight"},
+{ name: "Location.ToSuburb", label: "Location.ToSuburb"},
+{ name: "Items..Length", label: "Items..Length"},
+{ name: "Items..Width", label: "Items..Width"},
+{ name: "DeliveryOptions.HandUnload", label: "DeliveryOptions.HandUnload"},
+{ name: "Items..Height", label: "Items..Height"},
+{ name: "Items.CubicWeight", label: "Items.CubicWeight"},
+{ name: "Items.All.Height", label: "Items.All.Height"},
+{ name: "Items.Width", label: "Items.Width"},
+{ name: "Items.All.CubicWeight", label: "Items.All.CubicWeight"},
+{ name: "Items.All.Fragile", label: "Items.All.Fragile"},
+{ name: "Location.FromSuburb", label: "Location.FromSuburb"},
+{ name: "DeliveryOptions.TailLift", label: "DeliveryOptions.TailLift"},
+{ name: "ItemOptions.Fragile", label: "ItemOptions.Fragile"},
+{ name: "Items.Height", label: "Items.Height"},
+{ name: "DeliveryOptions.TwoMenDelivery", label: "DeliveryOptions.TwoMenDelivery"},
+{ name: "Items.All.Liquid", label: "Items.All.Liquid"},
+{ name: "Location.ToPostCode", label: "Location.ToPostCode"},
+{ name: "Location.FromCountryCode", label: "Location.FromCountryCode"},
+{ name: "Items.Diagonal", label: "Items.Diagonal"},
+{ name: "PickupOptions.HandLoad", label: "PickupOptions.HandLoad"},
+{ name: "Location.ToCountryCode", label: "Location.ToCountryCode"},
+{ name: "Location.FromPostCode", label: "Location.FromPostCode"},
+];
 
 const initialQuery: RuleGroupType = {
   rules: [
